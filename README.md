@@ -3,7 +3,7 @@ About pcaspy
 
 Home: https://github.com/paulscherrerinstitute/pcaspy/wiki
 
-Package license: BSD-3-clause
+Package license: BSD-3-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pcaspy-feedstock/blob/master/LICENSE.txt)
 
