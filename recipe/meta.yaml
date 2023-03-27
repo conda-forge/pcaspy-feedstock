@@ -1,4 +1,4 @@
-{% set version = "0.7.3" %}
+{% set version = "0.8.0" %}
 
 package:
   name: pcaspy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pcaspy/pcaspy-{{ version }}.tar.gz
-  sha256: 82f72f21293dc450bea5bec7beb69da6e5232425c1dc07524c3dba8a096bd555
+  sha256: 4f3cafdedc552acc9d9208a9c146e2da10b5e20942d4e401c907244d32ffc72c
   patches:
     # the pypi tarball is built by conda-build on linux, so we need to undo a patch
     # that should only have been applied for linux builds, see
@@ -14,7 +14,7 @@ source:
     - readline.patch  # [win]
 
 build:
-  number: 3
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [not win]
 
 requirements:
