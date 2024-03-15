@@ -32,17 +32,22 @@ requirements:
     - python
 
 test:
+  requires:
+    - numpy
+    - pip
   imports:
     - pcaspy
     - pcaspy.alarm
     - pcaspy.cas
     - pcaspy.driver
     - pcaspy.tools
-  requires:
-    - numpy
   source_files:
     - test/gddTest.py
   commands:
+    # check metadata
+    - python -m pip check
+    - python -m pip show pcaspy
+    # run tests
     - python test/gddTest.py
 
 about:
