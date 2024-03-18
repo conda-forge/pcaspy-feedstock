@@ -1,4 +1,4 @@
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 
 package:
   name: pcaspy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pcaspy/pcaspy-{{ version }}.tar.gz
-  sha256: 4f3cafdedc552acc9d9208a9c146e2da10b5e20942d4e401c907244d32ffc72c
+  sha256: 80f6aafacdd796c471b62737ad242a322cff22d8b8f18d9c56feed4270d221bf
 
 build:
   number: 0
