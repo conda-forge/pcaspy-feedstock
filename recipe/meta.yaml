@@ -7,11 +7,6 @@ package:
 source:
   url: https://pypi.io/packages/source/p/pcaspy/pcaspy-{{ version }}.tar.gz
   sha256: 4f3cafdedc552acc9d9208a9c146e2da10b5e20942d4e401c907244d32ffc72c
-  patches:
-    # the pypi tarball is built by conda-build on linux, so we need to undo a patch
-    # that should only have been applied for linux builds, see
-    # https://github.com/paulscherrerinstitute/pcaspy/blob/69fa94055838e8a7fbbc6dffaf97f535493dbf85/conda-recipe/readline.patch
-    - readline.patch  # [win]
 
 build:
   number: 0
