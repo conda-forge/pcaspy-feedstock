@@ -1,4 +1,4 @@
-{% set version = "0.7.3" %}
+{% set version = "0.8.0" %}
 
 package:
   name: pcaspy
@@ -6,15 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pcaspy/pcaspy-{{ version }}.tar.gz
-  sha256: 82f72f21293dc450bea5bec7beb69da6e5232425c1dc07524c3dba8a096bd555
-  patches:
-    # the pypi tarball is built by conda-build on linux, so we need to undo a patch
-    # that should only have been applied for linux builds, see
-    # https://github.com/paulscherrerinstitute/pcaspy/blob/69fa94055838e8a7fbbc6dffaf97f535493dbf85/conda-recipe/readline.patch
-    - readline.patch  # [win]
+  sha256: 4f3cafdedc552acc9d9208a9c146e2da10b5e20942d4e401c907244d32ffc72c
 
 build:
-  number: 4
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [not win]
 
 requirements:
@@ -32,17 +27,22 @@ requirements:
     - python
 
 test:
+  requires:
+    - numpy
+    - pip
   imports:
     - pcaspy
     - pcaspy.alarm
     - pcaspy.cas
     - pcaspy.driver
     - pcaspy.tools
-  requires:
-    - numpy
   source_files:
     - test/gddTest.py
   commands:
+    # check metadata
+    - python -m pip check
+    - python -m pip show pcaspy
+    # run tests
     - python test/gddTest.py
 
 about:
