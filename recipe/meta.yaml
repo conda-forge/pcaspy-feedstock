@@ -9,12 +9,13 @@ source:
   sha256: 80f6aafacdd796c471b62737ad242a322cff22d8b8f18d9c56feed4270d221bf
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv  # [not win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - epics-base 3
